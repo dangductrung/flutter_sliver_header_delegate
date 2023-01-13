@@ -57,11 +57,11 @@ class FlexibleHeaderDelegate extends SliverPersistentHeaderDelegate {
 
     return Material(
       elevation: progress < 1 ? expandedElevation : collapsedElevation,
+      color: Colors.transparent,
       child: Stack(
         fit: StackFit.expand,
         children: [
-          if (background != null)
-            SizedBox.expand(child: background!.transform(progress)),
+          if (background != null) SizedBox.expand(child: background!.transform(progress)),
           Container(
             height: visibleMainHeight,
             padding: EdgeInsets.only(top: statusBarHeight),
@@ -70,8 +70,7 @@ class FlexibleHeaderDelegate extends SliverPersistentHeaderDelegate {
               fit: StackFit.expand,
               children: [
                 if (builder != null) builder!(context, progress),
-                if (children != null)
-                  ...children!.map((item) => item.transform(progress)).toList(),
+                if (children != null) ...children!.map((item) => item.transform(progress)).toList(),
               ],
             ),
           ),
@@ -99,8 +98,7 @@ class FlexibleHeaderDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => collapsedHeight + statusBarHeight;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      true;
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;
 }
 
 // TODO MutableBackground
@@ -157,12 +155,9 @@ class FlexibleHeaderItem extends Widget {
     this.options = const [],
     this.minScale = 0,
     Key? key,
-  })  : assert(alignment == null ||
-            (expandedAlignment == null && collapsedAlignment == null)),
-        assert(padding == null ||
-            (expandedPadding == null && collapsedPadding == null)),
-        assert(margin == null ||
-            (expandedMargin == null && collapsedMargin == null)),
+  })  : assert(alignment == null || (expandedAlignment == null && collapsedAlignment == null)),
+        assert(padding == null || (expandedPadding == null && collapsedPadding == null)),
+        assert(margin == null || (expandedMargin == null && collapsedMargin == null)),
         assert(minScale >= 0 && minScale <= 1),
         super(key: key);
 
@@ -184,8 +179,7 @@ class FlexibleHeaderItem extends Widget {
   final Widget? child;
 
   @override
-  Element createElement() =>
-      throw Exception('Unable to wrap $this with other widgets');
+  Element createElement() => throw Exception('Unable to wrap $this with other widgets');
 }
 
 // TODO FlexibleTextItem
