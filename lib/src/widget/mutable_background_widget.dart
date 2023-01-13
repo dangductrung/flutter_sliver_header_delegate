@@ -37,7 +37,6 @@ class MutableBackgroundWidget extends StatelessWidget {
   }
 
   Widget _buildWidget(Widget? widget, Color? color) {
-    return widget ??
-        (color == null ? const SizedBox() : Container(color: color));
+    return widget ?? (color == null ? const SizedBox() : Container(color: color));
   }
 }
