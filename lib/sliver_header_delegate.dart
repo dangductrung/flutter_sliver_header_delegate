@@ -57,7 +57,7 @@ class FlexibleHeaderDelegate extends SliverPersistentHeaderDelegate {
 
     return Material(
       elevation: progress < 1 ? expandedElevation : collapsedElevation,
-      // color: Colors.transparent,
+      color: Colors.transparent,
       child: Stack(
         fit: StackFit.expand,
         children: [
