@@ -21,17 +21,15 @@ class GradientBackgroundWidget extends StatelessWidget {
                 Rect.fromLTWH(
                   0,
                   0,
-                  Tween<double>(begin: bounds.width, end: 0)
-                      .transform(_progress),
-                  Tween<double>(begin: bounds.height, end: 0)
-                      .transform(_progress),
+                  Tween<double>(begin: bounds.width, end: 0).transform(_progress),
+                  Tween<double>(begin: bounds.height, end: 0).transform(_progress),
                 ),
               );
             },
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.white,
+              color: Colors.transparent,
             ),
           )
         : Container(
